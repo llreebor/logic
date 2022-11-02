@@ -1878,9 +1878,9 @@ footer {
 }
 
 .accordion .accordion__item.accordion__item-active .line2 {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(0) !important;
+      -ms-transform: scale(0) !important;
+          transform: scale(0) !important;
 }
 
 .section__hero-inner {
