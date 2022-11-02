@@ -55,14 +55,14 @@ function toggleMegamenu() {
                 trigger.classList.add('active')
                 menus[i].classList.add('active')
                 document.querySelector('.submenus').classList.add('active')
-                document.querySelector('body').classList.add('locked')
+                // document.querySelector('body').classList.add('locked')
             } else {
                 console.log('2', e.target.classList.contains('active'))
                 menus.forEach((menuItem) => menuItem.classList.remove('active'))
                 trigger.classList.remove('active')
                 menus[i].classList.remove('active')
                 document.querySelector('.submenus').classList.remove('active')
-                document.querySelector('body').classList.remove('locked')
+                // document.querySelector('body').classList.remove('locked')
             }
         })
     })
