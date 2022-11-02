@@ -47,18 +47,29 @@ function toggleMegamenu() {
     const menus = document.querySelectorAll('.submenu')
     triggers.forEach((trigger, i) => {
         trigger.addEventListener('click', (e) => {
-            triggers.forEach((trg) => trg.classList.remove('active'))
             e.preventDefault()
-            menus.forEach((menuItem) => menuItem.classList.remove('active'))
-            menus[i].classList.toggle('active')
-            trigger.classList.toggle('active')
-            document.querySelector('.submenus').classList.add('active')
-            document.querySelector('body').classList.add('locked')
+
+            if (!e.target.classList.contains('active')) {
+                triggers.forEach((trg) => trg.classList.remove('active'))
+                menus.forEach((menuItem) => menuItem.classList.remove('active'))
+                trigger.classList.add('active')
+                menus[i].classList.add('active')
+                document.querySelector('.submenus').classList.add('active')
+                document.querySelector('body').classList.add('locked')
+            } else {
+                console.log('2', e.target.classList.contains('active'))
+                menus.forEach((menuItem) => menuItem.classList.remove('active'))
+                trigger.classList.remove('active')
+                menus[i].classList.remove('active')
+                document.querySelector('.submenus').classList.remove('active')
+                document.querySelector('body').classList.remove('locked')
+            }
         })
     })
 
     document.querySelector('.submenus').addEventListener('click', (e) => {
         if (e.target.classList.contains('submenus')) {
+            document.querySelector('.submenus').classList.remove('active')
             menus.forEach((menuItem) => menuItem.classList.remove('active'))
             triggers.forEach((trg) => trg.classList.remove('active'))
             document.querySelector('body').classList.remove('locked')
