@@ -1089,27 +1089,6 @@ nav {
   -webkit-transition: 0.3s border;
   -o-transition: 0.3s border;
   transition: 0.3s border;
-  font-family: "Poppins", sans-serif;
-}
-
-.subscribe__input::-webkit-input-placeholder {
-  font-family: "Poppins", sans-serif;
-}
-
-.subscribe__input::-moz-placeholder {
-  font-family: "Poppins", sans-serif;
-}
-
-.subscribe__input:-ms-input-placeholder {
-  font-family: "Poppins", sans-serif;
-}
-
-.subscribe__input::-ms-input-placeholder {
-  font-family: "Poppins", sans-serif;
-}
-
-.subscribe__input::placeholder {
-  font-family: "Poppins", sans-serif;
 }
 
 .subscribe__input:focus {
