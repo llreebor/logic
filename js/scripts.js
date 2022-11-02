@@ -57,7 +57,6 @@ function toggleMegamenu() {
                 document.querySelector('.submenus').classList.add('active')
                 // document.querySelector('body').classList.add('locked')
             } else {
-                console.log('2', e.target.classList.contains('active'))
                 menus.forEach((menuItem) => menuItem.classList.remove('active'))
                 trigger.classList.remove('active')
                 menus[i].classList.remove('active')
@@ -76,8 +75,8 @@ function toggleMegamenu() {
         }
     })
 }
+toggleMegamenu()
 
-mobileMenu()
 /* SLIDE UP */
 let slideUp = (target, duration = 300) => {
     target.style.transitionProperty = 'height, margin, padding'
@@ -160,7 +159,7 @@ function mobileMenu() {
         })
     })
 }
-toggleMegamenu()
+mobileMenu()
 
 if (document.querySelector('#home')) {
     const swiperCases = new Swiper('.swiper__cases', {
@@ -183,6 +182,62 @@ if (document.querySelector('#home')) {
             1200: {
                 slidesPerView: 2.1,
                 spaceBetween: 100,
+            },
+        },
+    })
+}
+
+// Accordion
+function accordion() {
+    const items = document.querySelectorAll('.accordion__item-trigger')
+    items.forEach((item) => {
+        item.addEventListener('click', () => {
+            const parent = item.parentNode
+            if (parent.classList.contains('accordion__item-active')) {
+                parent.classList.remove('accordion__item-active')
+            } else {
+                document
+                    .querySelectorAll('.accordion__item')
+                    .forEach((child) =>
+                        child.classList.remove('accordion__item-active'),
+                    )
+                parent.classList.add('accordion__item-active')
+            }
+        })
+    })
+}
+if (document.querySelector('#accordion')) {
+    accordion()
+}
+
+// Trusted Slider
+if (document.querySelector('#trusted__slider')) {
+    const swiperTrusted = new Swiper('.trusted__slider', {
+        // Responsive breakpoints
+        speed: 3000,
+        loop: true,
+
+        autoplay: {
+            delay: 0,
+        },
+        breakpoints: {
+            // when window width is >= 320px
+            320: {
+                slidesPerView: 1.2,
+                spaceBetween: 30,
+            },
+            // when window width is >= 480px
+            480: {
+                slidesPerView: 1.8,
+            },
+            768: {
+                slidesPerView: 3.2,
+            },
+            992: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
             },
         },
     })
